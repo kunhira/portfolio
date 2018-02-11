@@ -1,0 +1,131 @@
+.menu{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 100%;
+    z-index: 2;
+    padding-right: 20px;
+    clip-path: inset(0 100% 0 0);
+    animation:  rightIn 2.0s linear 0.2s forwards;
+    .menu__list{
+        display: flex;
+        justify-content:flex-end;
+        li{
+            font-family:'Quattrocento', serif;
+            padding: 20px 10px;
+            color:black;
+            font-size:1.4em;
+            cursor: pointer;
+            letter-spacing: 0.05em;
+        }
+    }
+}
+@keyframes rightIn{
+    100%{
+        clip-path: inset(0);
+    }
+}
+.hum__menu{
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    z-index: 7;
+    top: 17px;
+    right: 10px;
+    z-index: 5;
+    width: 30px;
+    height: 22px;
+    span{
+        display: inline-block;
+        position: absolute;
+        left: 0px;
+        width: 100%;
+        height: 1px;
+        background:rgba(51, 128, 189, 1);
+        transition-duration: 0.4s;
+        &:nth-child(1){
+            top: 0px;
+        }
+        &:nth-child(2){
+            top: 10px;
+        }
+        &:nth-child(3){
+            bottom: 0px;
+        }
+    }
+}
+.active{
+    z-index: 7;
+    span{
+        background: black;
+        &:nth-child(1){
+            transform: translateY(11px) rotate(-45deg);
+        }
+        &:nth-child(2){
+            transform: translateX(100px);
+            opacity: 0;
+        }
+        &:nth-child(3){
+            transform: translateY(-11px) rotate(45deg);
+        }
+    }
+}
+.menu__inner{
+    position: fixed;
+    top:0px;
+    left:0px;
+    z-index: 5;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    transition-duration: 0.4s;
+    clip-path: inset(0 100% 0 0);
+    div{
+        flex-basis: 25%;
+        padding: 100% 0;
+        color:white;
+        text-align: center;
+        font-size: 2.0em;
+        cursor: pointer;
+    }
+    div:nth-child(2n){
+        background: white;
+        color: rgba(33, 35, 39, 1);
+    }
+    div:nth-child(2n+1){
+        background: rgba(33, 35, 39, 1);
+        color: white;
+    }
+}
+@media screen and (max-width:700px){
+    .menu__inner{
+        clip-path: inset(0 0 100% 0);
+        flex-wrap: wrap;
+        align-items: center;
+        div{
+            flex-basis: 100%;
+            height: 25%;
+            padding: 0;
+            position: relative;
+            span{
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+        }
+        div:nth-child(2n){
+            background: rgba(33, 35, 39, 1);
+            color: white;
+        }
+        div:nth-child(2n+1){
+            background: white;
+            color: rgba(33, 35, 39, 1);
+        }
+    }
+}
+.active_inner{
+    clip-path: inset(0);
+}

@@ -1,0 +1,71 @@
+$(function(){
+    $(window).on('scroll',function(){
+        var scroll = $(window).scrollTop();
+        if(scroll > 100){
+            $('.name').fadeOut(100);
+            $('.scroll').fadeOut(50);
+            $('.menu').fadeOut(80);
+            $('.hum__menu').fadeIn(100);
+        }
+        else{
+            $('.name').fadeIn(100);
+            $('.scroll').fadeIn(100);
+            $('.menu').fadeIn(80);
+            $('.hum__menu').fadeOut(50);
+        }
+    })
+    $('.portfolios__card').on('inview',function(){
+        $(this).addClass('in');
+    })
+    $('.about__img').on('inview',function(){
+        $(this).addClass('in__about');
+    })
+    $('.hum__menu').on('click',function(){
+        $('.hum__menu').toggleClass('active');
+        $('.menu__inner').toggleClass('active_inner');
+    })
+    $('.scroll').on('click',function(){
+        $('html,body').animate({scrollTop:$('.portfolioWrap').offset().top},500);
+    })
+    $('.works').on('click',function(){
+        if($('.hum__menu').hasClass('active')){
+            $('.hum__menu').toggleClass('active');
+        }
+        if($('.menu__inner').hasClass('active_inner')){
+            $('.menu__inner').toggleClass('active_inner');
+        }
+        $('html,body').animate({scrollTop:$('.portfolioWrap').offset().top},500);
+
+    })
+    $('.skills').on('click',function(){
+        if($('.hum__menu').hasClass('active')){
+            $('.hum__menu').toggleClass('active');
+        }
+        if($('.menu__inner').hasClass('active_inner')){
+            $('.menu__inner').toggleClass('active_inner');
+        }
+        $('html,body').animate({scrollTop:$('.skillWrap').offset().top},500);
+
+    })
+    $('.about').on('click',function(){
+        if($('.hum__menu').hasClass('active')){
+            $('.hum__menu').toggleClass('active');
+        }
+        if($('.menu__inner').hasClass('active_inner')){
+            $('.menu__inner').toggleClass('active_inner');
+        }
+        $('html,body').animate({scrollTop:$('.aboutWrap').offset().top},500);
+    })
+    $('.contact').on('click',function(){
+        if($('.hum__menu').hasClass('active')){
+            $('.hum__menu').toggleClass('active');
+        }
+        if($('.menu__inner').hasClass('active_inner')){
+            $('.menu__inner').toggleClass('active_inner');
+        }
+        $('html,body').animate({scrollTop:$('.contactWrap').offset().top},500);
+    })
+    $('.pageTop').on('click',function(){
+        $('html,body').animate({scrollTop:0},500);
+    })
+})
