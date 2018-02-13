@@ -30,7 +30,9 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    -webkit-clip-path: inset(0 100% 0 0);
     clip-path: inset(0 100% 0 0);
+    -webkit-animation: rightIn 2.0s linear 0.2s forwards;
     animation: name 1.0s linear 0.1s forwards;
 }
 @media screen and (max-width:700px){
@@ -38,8 +40,15 @@
         font-size: 3.0em;
     }
 }
+@-webkit-keyframes name{
+    100%{
+        -webkit-clip-path: inset(0);
+        clip-path: inset(0);
+    }
+}
 @keyframes name{
     100%{
+        -webkit-clip-path: inset(0);
         clip-path: inset(0);
     }
 }
