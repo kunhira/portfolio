@@ -3,19 +3,20 @@ var maxHeight; //垂直方向に動ける最大値
 
 var device = "pc";
 var linewidth = '0.1';
+var num = 9; //数
 
 //ユーザーエージェント判定
 var ua = navigator.userAgent;
 if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
-    linewidth = '0.03';
+    linewidth = '0.01';
     device = "sp";
+    num = 6;
 } else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
     linewidth = '0.05';
 }
 
 const canvas = document.getElementById('fullscreen__canvas');
 const ctx = canvas.getContext('2d');
-var num = 9; //数
 var particles = [];
 var linecol = 'black';
 var resize = false;
