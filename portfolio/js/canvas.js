@@ -1,10 +1,26 @@
 var maxWidth;  //水平方向に動ける最大値
 var maxHeight; //垂直方向に動ける最大値
 
+var device = "pc";
+var linewidth = '0.1';
 
+//ユーザーエージェント判定
+var ua = navigator.userAgent;
+if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+    linewidth = '0.03';
+    device = "sp";
+} else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+    linewidth = '0.05';
+}
+
+const canvas = document.getElementById('fullscreen__canvas');
+const ctx = canvas.getContext('2d');
+var num = 9; //数
+var particles = [];
+var linecol = 'black';
 var resize = false;
-//リサイズイベント
 
+//リサイズイベント
 var timer = 0;
 window.onresize = function () {
     if (timer > 0) {
@@ -12,9 +28,11 @@ window.onresize = function () {
     }
     timer = setTimeout(function () {
         canvasSize();
-        for(var i=0; i<num; i++){
-            particles[i].x = canvas.width/2;
-            particles[i].y = canvas.height/2;
+        if(device === "pc" ){
+            for(var i=0; i<num; i++){
+                particles[i].x = canvas.width/2;
+                particles[i].y = canvas.height/2;
+            }
         }
     }, 200);
   };
@@ -29,21 +47,12 @@ function canvasSize(){
     $( '#fullscreen__canvas' ).attr('height',h);
 }
 
-const canvas = document.getElementById('fullscreen__canvas');
-const ctx = canvas.getContext('2d');
-var num = 9; //数
-var particles = [];
-var linecol = 'black';
-var linewidth = '0.1';
-
 $('.aboutWrap').on('inview',function(event, isInView){
     if(isInView){
         linecol = 'blue';
-        linewidth = '0.2';
     }
     else{
         linecol = 'black';
-        linewidth = '0.1';
     }
 })
 
@@ -64,7 +73,7 @@ Particle.prototype.draw = function(){ //バーティクルの描画
     ctx.arc(this.x,this.y,this.r,0,Math.PI*2.0,true);
     //ctx.fillStyle = 'rgb(' + this.color_r + ',' + this.color_g + ',' + this.color_b + ')';
     ctx.fillStyle = 'rgba(0,0,255,0)';
-    ctx.globalCompositeOperation = "lighter";
+    //ctx.globalCompositeOperation = "lighter";
     ctx.fill();
 }
 
