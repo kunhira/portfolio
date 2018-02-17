@@ -90,7 +90,7 @@ Particle.prototype.update = function(){ //バーティクルの移動
     }
     for(var i=0; i<particles.length;i++){
         ctx.beginPath();
-        ctx.lineWidth = linewidth;
+        ctx.lineWidth = 0.2;
         ctx.strokeStyle = linecol;
         ctx.moveTo(this.x,this.y);
         ctx.lineTo(particles[i].x,particles[i].y);
@@ -128,7 +128,7 @@ $(function(){
         //y = randomNum(maxHeight,r);
         x = canvas.width/2;
         y = canvas.height/2;
-        speed = randomNum(8,1);
+        speed = randomNum(6,1);
         //color_r = Math.floor(Math.random()*256);
         //color_g = Math.floor(Math.random()*256);
         //color_b = Math.floor(Math.random()*256);
