@@ -5,12 +5,15 @@ var device = "pc";
 var linewidth = '0.1';
 var num = 9; //数
 
+var linecol = 'black';
+
 //ユーザーエージェント判定
 var ua = navigator.userAgent;
 if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
-    linewidth = '0.2';
+    linewidth = '0.02';
     device = "sp";
     num = 5;
+    linecol = "lightblue";
 } else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
     linewidth = '0.2';
 }
@@ -18,7 +21,6 @@ if (ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') 
 const canvas = document.getElementById('fullscreen__canvas');
 const ctx = canvas.getContext('2d');
 var particles = [];
-var linecol = 'black';
 var resize = false;
 
 //リサイズイベント
@@ -90,7 +92,7 @@ Particle.prototype.update = function(){ //バーティクルの移動
     }
     for(var i=0; i<particles.length;i++){
         ctx.beginPath();
-        ctx.lineWidth = 0.2;
+        ctx.lineWidth = linewidth;
         ctx.strokeStyle = linecol;
         ctx.moveTo(this.x,this.y);
         ctx.lineTo(particles[i].x,particles[i].y);
