@@ -51,7 +51,12 @@ function canvasSize(){
 
 $('.aboutWrap').on('inview',function(event, isInView){
     if(isInView){
-        linecol = 'lightblue';
+        if(device === "pc"){
+            linecol = 'red';
+        }
+        else{
+            linecol = 'lightblue';
+        }
     }
     else{
         linecol = 'lightslategray';
