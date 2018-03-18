@@ -159,16 +159,16 @@ body {
       background: url("../img/seethelight.png") no-repeat;
       background-position: center center;
       background-size: cover; }
-    .portfolioWrap .portfolios .portfolios__card:nth-child(2) div {
+    .portfolioWrap .portfolios .portfolios__card:nth-child(3) div {
       background: url("../img/outerknit.png") no-repeat;
       background-position: center center;
       background-size: cover; }
-    .portfolioWrap .portfolios .portfolios__card:nth-child(3) div {
+    .portfolioWrap .portfolios .portfolios__card:nth-child(4) div {
       background: url("../img/summer.png") no-repeat;
       background-position: center center;
       background-size: cover; }
-    .portfolioWrap .portfolios .portfolios__card:nth-child(4) div {
-      background: url("../img/lookbook.png") no-repeat;
+    .portfolioWrap .portfolios .portfolios__card:nth-child(2) div {
+      background: url("https://image.rakuten.co.jp/spu/cabinet/soyous_top/top50_mb.jpg") no-repeat;
       background-position: center center;
       background-size: cover; }
 
@@ -287,4 +287,6 @@ body {
     height: 60px;
     font-size: 30px;
     line-height: 60px;
-    margin: 0 8px; } }
+    margin: 0 8px; }
+  .aboutWrap p {
+    font-size: 1.2em; } }
